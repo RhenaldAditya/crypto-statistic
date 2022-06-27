@@ -1,0 +1,4 @@
+ <div id="divmelihatkoala">
+    <p class="col-md-8 fs-4">Ingin melihat sesuatu benda hidup?</p>
+    <a class="btn btn-primary btn-sm" style="border-radius:5px;" type="button" href="#koalasec">Klik Disini</a>
+</div>

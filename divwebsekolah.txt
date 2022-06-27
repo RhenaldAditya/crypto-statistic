@@ -1,0 +1,6 @@
+<p><a href="http://elearning.stembayo.top" id="setattrw3s">elearning.stembayo.top</a></p>
+<p class="col-md-8 fs-4" id="linkakhir">Link nya sudah berubah!, klikkk</p>
+<div id="gofoodsec">
+    <p class="col-md-8 fs-4">perut mulai lapar nih, gimana kalo kita list makanan fav kita terus nanti pesen gofood? skuyy</p>
+    <a class="btn btn-success btn-sm" href="#gofood">gofood</a>
+</div>
