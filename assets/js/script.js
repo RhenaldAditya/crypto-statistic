@@ -1,95 +1,5 @@
-
-//script jam navbar 
-$(document).ready(function() {
-    clockUpdate();
-    setInterval(clockUpdate, 1000);
-})
-
-function clockUpdate() {
-    var date = new Date();
-    // $('#digital-clock').css({'color': '#fff', 'text-shadow': '0 0 6px #ff0'});
-    function addZero(x) {
-        if (x < 10) {
-        return x = '0' + x;
-        } else {
-        return x;
-        }
-    }
-
-    function twelveHour(x) {
-        if (x > 12) {
-        return x = x + 0;
-        } else if (x == 0) {
-        return x = 12;
-        } else {
-        return x;
-        }
-    }
-
-    var yr = addZero(date.getFullYear());
-    var mt = addZero(date.getMonth());
-    var d = addZero(date.getDate());
-    var h = addZero(twelveHour(date.getHours()));
-    var m = addZero(date.getMinutes());
-    var s = addZero(date.getSeconds());
-    // var ms = addZero(date.getMilliseconds());
-
-    $('#digital-clock').text(d + "/" + mt + "/" + yr + "            " + h + ':' + m + ':' + s)
-}
-
-// countdown hari H
 $(document).ready(function(){
-    // Set the date we're counting down to
-    var countDownDate = new Date("Jun 24, 2022 14:35:00").getTime();
-    var countDownDateFirst = new Date("Jun 25, 2021 07:20:00").getTime();
-
-    // Update the count down every 1 second
-    var x = setInterval(function() {
-
-        // Get today's date and time
-        var now = new Date().getTime();
-        // Find the distance between now and the count down date
-        var distance = countDownDate - now;
-
-        let progressNew = ((countDownDate - countDownDateFirst) - distance) ;
-        let firstPercentVal = countDownDate - countDownDateFirst;
-        
-        let diffPercentBetween = (firstPercentVal - progressNew) / ((firstPercentVal + progressNew) / 2) * 100;
-        let diffPercentBetweenRounded = 100 - diffPercentBetween;
-
-        let diffPercentBetweenRounded2 = diffPercentBetweenRounded.toFixed(2);
-        let diffPercentBetweenRounded5 = diffPercentBetweenRounded.toFixed(6);
-
-        // Time calculations for days, hours, minutes and seconds
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        // Display the result in the element with id="demo"
-        document.getElementById("demo").innerHTML = days + "D " + ": "+ hours + " h" + ": " 
-        + minutes + " m" + ": " + seconds + " s";
-
-        $("#progressBarId").attr("aria-valuenow", now);
-        $("#progressBarId").attr("aria-valuemax", countDownDate);
-        $("#progressBarId").css("width", diffPercentBetweenRounded2+"%")
-        document.getElementById("progressBarValue").innerText = diffPercentBetweenRounded5+"%";
-        
-        
-
-        // If the count down is finished, write some text
-        if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("demo").innerHTML = "EXPIRED CONTRACT";
-        }
-    }, 1000);
-
-
-    let sortethnow = $("#selectGraphicParam").val()
-    // if (sortethnow == '24h'){
-    //     setInterval(getdatagrafik('24h'),5000)
-    // }
-
+    
 
     //const utama buat save id coin
     const dataForGrafikLine = []
@@ -108,13 +18,16 @@ $(document).ready(function(){
             $.each(response, function( index, value ) {    
                 let i = 0;            
                 $.each(value, function(ind, val){
-                    $("#tbodyCryptoTable").append('<tr>');
-                    $("#tbodyCryptoTable").append('<td class="imgcontainer text-center align-center">'+ val.name +'  <img src="'+ val.icon +'" alt="" srcset=""></td>');
-                    $("#tbodyCryptoTable").append('<td class="text-center align-center">'+ val.rank +'</td>');
-                    $("#tbodyCryptoTable").append('<td class="text-center align-center">'+ val.availableSupply.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +'</td>');
-                    $("#tbodyCryptoTable").append('<td class="text-center align-center">'+ val.totalSupply.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +'</td>');
-                    $("#tbodyCryptoTable").append('<td class="text-center align-center cryptoPrice'+ i +'">IDR '+ val.price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +'</td>');
-                    $("#tbodyCryptoTable").append('</tr>');
+                    $("#tbodyCryptoTable").append('<tr><td class="imgcontainer text-center align-center">'+ val.name +'  <img src="'+ val.icon +'" alt="" srcset=""></td><td class="text-center align-center">'+ val.rank +'</td><td class="text-center align-center">'+ val.availableSupply.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +'</td><td class="text-center align-center">'+ val.totalSupply.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +'</td><td class="text-center align-center cryptoPrice'+ i +'">IDR '+ val.price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +'</td><td class="text-center">24h Change : '+val.priceChange1h+'% 1d Change : '+val.priceChange1d+'% 1w Change : '+val.priceChange1w+'%</td></tr>');
+                    // $("#tbodyCryptoTable").append('<td>');
+                    // $("#tbodyCryptoTable").append('</td>')
+                    // $("#tbodyCryptoTable").append('<td class="imgcontainer text-center align-center">'+ val.name +'  <img src="'+ val.icon +'" alt="" srcset=""></td>');
+                    // $("#tbodyCryptoTable").append('<td class="text-center align-center">'+ val.rank +'</td>');
+                    // $("#tbodyCryptoTable").append('<td class="text-center align-center">'+ val.availableSupply.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +'</td>');
+                    // $("#tbodyCryptoTable").append('<td class="text-center align-center">'+ val.totalSupply.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +'</td>');
+                    // $("#tbodyCryptoTable").append('<td class="text-center align-center cryptoPrice'+ i +'">IDR '+ val.price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +'</td>');
+                    // $("#tbodyCryptoTable").append('<td class="text-center">24h Change : '+val.priceChange1h+'% 1d Change : '+val.priceChange1d+'% 1w Change : '+val.priceChange1w+'%</td>')
+                    // $("#tbodyCryptoTable").append('</tr>');
                     i++
                 })
             });
@@ -177,38 +90,16 @@ $(document).ready(function(){
 $(document).on("change", ".selectGraphicParam", function(){
     var parameter = $(this).val()
     console.log(parameter)
-    $("#valuehiddenacuan").val(parameter)
-    // let acuankita = $("#valuehiddenacuan").val()
-    // console.log()
-    // ambilparameter()
-    // getdatagrafik(acuankita)
-
-    // var paramssss = $(this).val()
-    // setInterval(function(){
-    //     getdatagrafik(acuankita)
-    // },5000);
-        
+    $("#valuehiddenacuan").val(parameter)        
 })
 
 function ambilparameter(e){
     let acuankita = $("#valuehiddenacuan").val()
+    getdatagrafik($("#valuehiddenacuan").val())
     var intervall =  setInterval(function(){
         getdatagrafik($("#valuehiddenacuan").val())
-    },5000);
-
-    // var refreshIntervalId = setInterval(fname, 10000);
-
-    /* later */
-    // clearInterval(intervall);
+    },60000);
 }
-
-// function sortbytime(){
-    // $("#selectGraphicParam").on("change", function(){
-        // let param = $("#selectGraphicParam").val()
-        // console.log(param)
-        // setInterval(getdatagrafik(param), 5000);
-    // })
-// }
 
 function getdatagrafik(param){
     $.ajax({
