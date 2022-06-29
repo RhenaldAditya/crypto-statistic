@@ -7,5 +7,7 @@
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="<?= base_url('assets/plugins/ChartJS-37/dist/chart.min.js') ?>"></script>
-<script src=" <?= base_url('assets/plugins/chartjs-plugin-datalabels/chartjs-plugin-datalabels.min.js') ?>"></script>
+<script src="<?= base_url('assets/plugins/chartjs-plugin-datalabels/chartjs-plugin-datalabels.min.js') ?>"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.js"></script>
 </html>

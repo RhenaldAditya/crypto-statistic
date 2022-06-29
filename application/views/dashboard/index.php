@@ -4,16 +4,6 @@
         <div class="container h-100">
             <div class="row align-items-center h-100">
                 <div class="col-12 mx-auto">
-                    <!-- <div id="demo">
-                        </div>
-                        <br>
-                        <div class="progress">
-                            <div id="progressBarId" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="">
-                                <span id="progressBarValue"></span>
-                            </div>
-                        </div>
-                    </div> -->
-                    <!-- <br> -->
                     <div id="DivCryptoTable">
                         <table class="table table-striped table-hover" id="CryptoTable">
                             <thead>
@@ -22,9 +12,10 @@
                                 <th class="text-center">Available Supply</th>
                                 <th class="text-center">Total Supply</th>
                                 <th class="text-center">Price</th>
+                                <th class="text-center">Price Change</th>
                             </thead>
                             <tbody id="tbodyCryptoTable">
-    
+                                
                             </tbody>
                         </table>
                     </div>

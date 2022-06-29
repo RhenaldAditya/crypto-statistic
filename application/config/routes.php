@@ -56,5 +56,5 @@ $route['translate_uri_dashes'] = FALSE;
 
 // $route[''] = 'Welcome';
 // $route['trialci'] = 'Welcome';
-$route['home'] = 'Welcome/home';
+$route['/'] = 'Welcome';
 $route['hitungstring'] = 'Welcome/hitungstring';
