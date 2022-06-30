@@ -4,6 +4,7 @@ $(document).ready(function(){
     //const utama buat save id coin
     const dataForGrafikLine = []
     
+    
     // ini ajax utama, dia tarik data crypto, + ada id coin yg nanti buat nyari data pergerakan harga
     $.ajax({
         type: "GET",
@@ -31,7 +32,7 @@ $(document).ready(function(){
                     i++
                 })
             });
-
+            $("#CryptoTable").DataTable({})
         },
         complete: function(a, b){
             

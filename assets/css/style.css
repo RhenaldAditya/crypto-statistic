@@ -24,38 +24,16 @@
    border: solid 1px #c3c3c3;
  }
  
+ 
  #panel {
    padding: 50px;
    display: none;
  }
 
- /* .heavenheader{ */
-    /* background-image: url("../img/sean-oulashin-KMn4VEeEPR8-unsplash.jpg"); */
-    /* background: #c3c3c3; */
-    
-    /* background-position: center; 
-    background-repeat: no-repeat; 
-    background-size: cover;
-    height: 650px;
-} */
-
-/* #countdownH{
-    font-size: 80px;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    padding: auto;
-    background-image: url("../img/sean-oulashin-KMn4VEeEPR8-unsplash.jpg");
-    background-position: center; 
-    background-repeat: no-repeat; 
-    background-size: cover;
-    height: 450px;
-} */
 .boxx{
     display: inline;
     font-weight: bold;
     /* background: #e5eecc; */
-
 }
 
 .red {
@@ -76,6 +54,7 @@
 }
 
 #DivCryptoTable{
+  padding: 20px;
   background-color: rgba(163, 163, 163, 1);  
   backdrop-filter: blur(10px);
   border-radius: 10px;
@@ -91,31 +70,3 @@
   width: 55%;
   height: auto;
 }
-
-/* #DivCryptoTable:before{
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-#DivCryptoTable{
-  box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
-  filter: blur(10px);
-  background-color: rgb(148, 148, 148, 0.5);
-}
-
-#DivCryptoTable {
-  background: inherit;
-}
-
-#DivCryptoTable:before {
-  background: inherit;
-}  */
-
-
- /* .carousel {
-     width: 100%;
-     height: auto;
- } */
