@@ -19,7 +19,28 @@ $(document).ready(function(){
             $.each(response, function( index, value ) {    
                 let i = 0;            
                 $.each(value, function(ind, val){
-                    $("#tbodyCryptoTable").append('<tr><td class="imgcontainer text-center align-center">'+ val.name +'  <img src="'+ val.icon +'" alt="" srcset=""></td><td class="text-center align-center">'+ val.rank +'</td><td class="text-center align-center">'+ val.availableSupply.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +'</td><td class="text-center align-center">'+ val.totalSupply.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +'</td><td class="text-center align-center cryptoPrice'+ i +'">IDR '+ val.price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +'</td><td class="text-center">24h Change : '+val.priceChange1h+'% 1d Change : '+val.priceChange1d+'% 1w Change : '+val.priceChange1w+'%</td></tr>');
+                    var price1h = val.priceChange1h
+                    var price1d = val.priceChange1d
+                    var price1w = val.priceChange1w
+                    const price1 = Number(price1h);
+                    const price2 = Number(price1d);
+                    const price3 = Number(price1w);
+                    let styletext1 = 'color:green';
+                    let styletext2 = 'color:green';
+                    let styletext3 = 'color:green';
+                    if(price1 < 0.01){
+                       styletext1 = "color:red;"
+                    }
+                    if(price2 < 0.01){
+                        styletext2 = "color:red;"
+                    }
+                    if(price3 < 0.01){
+                        styletext3 = "color:red;"
+                    }
+                    // console.log(firstDigitNum);
+                    // console.log(typeof firstDigitNum);
+                    // console.log(cekval.slice(0,1))
+                    $("#tbodyCryptoTable").append('<tr><td class="imgcontainer text-center align-center">'+ val.name +'  <img src="'+ val.icon +'" alt="" srcset=""></td><td class="text-center align-center">'+ val.rank +'</td><td class="text-center align-center">'+ val.availableSupply.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +'</td><td class="text-center align-center">'+ val.totalSupply.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +'</td><td class="text-center align-center cryptoPrice'+ i +'">IDR '+ val.price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +'</td><td class="text-center">1h Change : <span style="'+styletext1+'">'+val.priceChange1h+'%</span> 1d Change : <span style="'+styletext2+'">'+val.priceChange1d+'%</span> 1w Change : <span style="'+styletext3+'">'+val.priceChange1w+'%</span></td></tr>');
                     // $("#tbodyCryptoTable").append('<td>');
                     // $("#tbodyCryptoTable").append('</td>')
                     // $("#tbodyCryptoTable").append('<td class="imgcontainer text-center align-center">'+ val.name +'  <img src="'+ val.icon +'" alt="" srcset=""></td>');
@@ -85,6 +106,7 @@ $(document).ready(function(){
     //     getdatagrafik('24h')
     //     }, 30000
     // );
+    // $("#divtimerloaddata").append("<div class='spinner-border' role='status'><span class='sr-only'>Loading...</span></div>")
 
 });
 
@@ -112,6 +134,9 @@ function getdatagrafik(param){
             // currency : "IDR"
         },
         dataType: "json",
+        beforeSend: function(){
+            $("#divtimerloaddata").empty()
+        },
         success: function (response) {
             console.log(response)
             const dataForGrafikLine = []
@@ -131,6 +156,19 @@ function getdatagrafik(param){
             $("#divforcanvas").append("<canvas id='grafikHargaETH'></canvas>");
 
             generategrafikchartjs(dataForGrafikLine)
+
+            $("#divtimerloaddata").append("<div class='spinner-border' role='status'><span class='sr-only'>Loading...</span></div> <span>Data Refresh in</span> <span class='timercountdown'></span> <span>sec</span>")
+
+            let ctd = 59;
+            var startTime = new Date().getTime();
+            var interval = setInterval(function(){
+                if(new Date().getTime() - startTime > 60000){
+                    clearInterval(interval);
+                    return;
+                }
+                $(".timercountdown").text(ctd)
+                ctd--
+            }, 1000); 
         }
     });
 }

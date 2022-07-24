@@ -24,15 +24,21 @@
                     <br>
                     <div>
                         <label for="divforcanvas">Ethereum Graphic in USD</label>
-                        <select class="form-select form-select-lg mb-3 selectGraphicParam" style="width: 15%;" name="" id="">
-                            <option value="24h">One Day</option>
-                            <option value="1w">One Week</option>
-                            <option value="1m">One Month</option>
-                            <option value="3m">Three Month</option>
-                            <option value="6m">Six Month</option>
-                            <option value="1y">One Year</option>
-                            <option value="all">All Time</option>
-                        </select>
+                        <!-- <div style="display:flex;flex-direction:row;flex-grow:4;"> -->
+                            <div>
+                                <select class="form-select form-select-lg mb-3 selectGraphicParam" style="width: 15%;" name="" id="">
+                                    <option value="24h">One Day</option>
+                                    <option value="1w">One Week</option>
+                                    <option value="1m">One Month</option>
+                                    <option value="3m">Three Month</option>
+                                    <option value="6m">Six Month</option>
+                                    <option value="1y">One Year</option>
+                                    <option value="all">All Time</option>
+                                </select>
+                            </div>
+                            <div id="divtimerloaddata">
+                            </div>
+                        <!-- </div> -->
                     </div>
                     <div id="divforcanvas">
                         <canvas id="grafikHargaETH"></canvas>
